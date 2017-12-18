@@ -1,0 +1,25 @@
+#dropBox {
+    border: 3px dashed #0087F7;
+    border-radius: 5px;
+    background: #F3F4F5;
+    cursor: pointer;
+}
+
+#dropBox {
+    min-height: 150px;
+    padding: 54px 54px;
+    box-sizing: border-box;
+}
+
+#dropBox p {
+    text-align: center;
+    margin: 2em 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#fileInput {
+    display: none;
+}
+
+
