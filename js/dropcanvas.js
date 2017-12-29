@@ -86,35 +86,5 @@ imgUpload.on('addedfile', function (file) {
     reader.readAsDataURL(file);
 });
 
-// canvas retro
-/*
-Dropzone.autoDiscover = false;
-var retro = new fabric.Canvas('Rcanvas');
-var imgUploadR = new Dropzone('#img-upload', {
-    url: 'uploader/upload.php',
-    dictDefaultMessage: 'Clicca qua per caricare la tua immagine'
-});
-imgUploadR.on('success', function () {
+//screenshot il fronte e il retro
 
-    $('#upl-info').removeClass('alert-info');
-    $('#upl-info').addClass('alert-success');
-    $('#upl-info').html('File has been uploaded successfully. Click to upload another.')
-});
-var r_reader = new FileReader();
-r_reader.onload = function (event_r) {
-    var r_data = event_r.target.result;
-    fabric.Image.fromURL(r_data, function (imgr) {
-        let scale = 300 / imgr.width;
-
-        imgr.set({
-            scaleX: scale,
-            scaleY: scale
-        });
-        retro.add(imgr).renderAll();
-        retro.setActiveObject(imgr);
-    });
-};
-*/
-imgUploadR.on('addedfile', function (file_r) {
-    r_reader.readAsDataURL(file_r);
-});

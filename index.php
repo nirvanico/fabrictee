@@ -13,6 +13,7 @@
 <body>
     <div class="container py-2">
         <div class="row">
+
             <div class="col-md-6">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
@@ -39,12 +40,12 @@
                     </div>
                     <div id="imgupl" class="container tab-pane fade"><br>
                         <h3>ImageUploader</h3>
-                        
+
                         <?php  include 'uploader/main.php' ?>
 
-                        
 
-                       
+
+
                     </div>
                     <div id="textedit" class="container tab-pane fade"><br>
                         <h3>Text Editor</h3>
@@ -82,6 +83,32 @@
 
             </div>
         </div>
+        <!--Seconda riga dedicata al bottone di invio-->
+        <div class="row">
+            <button class="btn btn-primary" id="screenshot" data-toggle="modal" data-target="#Prewiev">Invia</button>
+            
+            
+            <!-- Modal -->
+            <div class="modal fade" id="Prewiev" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -89,14 +116,13 @@
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
     <script src="js/dropzone.min.js"></script>
     <script src="js/fabric.min.js"></script>
-    <script src="js/texteditor.js"></script> 
-    <!-- test -->
+    <script src="js/texteditor.js"></script>
     <script src="js/dropcanvas.js"></script>
-    <!-- test -->
-    
-    
+
+
 
 
 </body>

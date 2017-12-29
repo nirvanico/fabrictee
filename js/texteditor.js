@@ -1,22 +1,5 @@
 
 
-
-//
-//$("#sendtext").click(function () {
-//   var inputext = $('#txt_name').val();
-
-//  var text = new fabric.Text(inputext, {
-//left: 100,
-//top: 100
-// });
-// canvas.add(text);
-//});
-//
-
-
-
-
-
 // texteditor
 
 
