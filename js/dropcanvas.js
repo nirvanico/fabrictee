@@ -1,22 +1,22 @@
 //nascondi e mostra i canvas
 var position // modificato al click sui bottoni fronte/retro indica posizione attuale maglietta.
-$("#retrobtn").click(function () {
+$('#retrobtn').click(function () {
 
-    $("#magliettafronte").hide();
-    $("#magliettaretro").show();
-    if ($("#frontebtn").hasClass("active") == true) {
-        $("#frontebtn").removeClass("active");
-        $("#retrobtn").addClass("active");
+    $('#magliettafronte').hide();
+    $('#magliettaretro').show();
+    if ($('#frontebtn').hasClass('active') == true) {
+        $('#frontebtn').removeClass('active');
+        $('#retrobtn').addClass('active');
     }
 	position = 'Rcanvas';
 });
 
-$("#frontebtn").click(function () {
-    $("#magliettaretro").hide();
-    $("#magliettafronte").show();
-    if ($("#retrobtn").hasClass("active") == true) {
-        $("#retrobtn").removeClass("active");
-        $("#frontebtn").addClass("active");
+$('#frontebtn').click(function () {
+    $('#magliettaretro').hide();
+    $('#magliettafronte').show();
+    if ($('#retrobtn').hasClass('active') == true) {
+        $('#retrobtn').removeClass('active');
+        $('#frontebtn').addClass('active');
 
     }
 	position = 'Fcanvas';
@@ -25,7 +25,7 @@ $("#frontebtn").click(function () {
 
 // bottone elimina 
 
-$(document).on('click', "#delete-item", function () {
+$(document).on('click', '#delete-item', function () {
     if (fronte.getActiveObject()||retro.getActiveObject() ) {
         fronte.remove(fronte.getActiveObject());
         retro.remove(retro.getActiveObject());
@@ -52,15 +52,15 @@ Dropzone.autoDiscover = false;
 var fronte = new fabric.Canvas('Fcanvas'); // carico su 2 oggetti diversi il fronte
 var retro = new fabric.Canvas('Rcanvas');  // e il retro della maglietta.
 var mySide = new fabric.Canvas();		   // quando modifico modifico l'attuale la utilizzato
-var imgUpload = new Dropzone("#img-upload", {
-    url: "uploader/upload.php",
-    dictDefaultMessage: "Clicca qua per caricare la tua immagine"
+var imgUpload = new Dropzone('#img-upload', {
+    url: 'uploader/upload.php',
+    dictDefaultMessage: 'Clicca qua per caricare la tua immagine'
 });
-imgUpload.on("success", function () {
+imgUpload.on('success', function () {
 	
-    $("#upl-info").removeClass("alert-info");
-    $("#upl-info").addClass("alert-success");
-    $("#upl-info").html("File has been uploaded successfully. Click to upload another.")
+    $('#upl-info').removeClass('alert-info');
+    $('#upl-info').addClass('alert-success');
+    $('#upl-info').html('File has been uploaded successfully. Click to upload another.')
 });
 var reader = new FileReader();
 reader.onload = function (event) {
@@ -82,7 +82,7 @@ reader.onload = function (event) {
     });
 };
 
-imgUpload.on("addedfile", function (file) {
+imgUpload.on('addedfile', function (file) {
     reader.readAsDataURL(file);
 });
 
@@ -90,15 +90,15 @@ imgUpload.on("addedfile", function (file) {
 /*
 Dropzone.autoDiscover = false;
 var retro = new fabric.Canvas('Rcanvas');
-var imgUploadR = new Dropzone("#img-upload", {
-    url: "uploader/upload.php",
-    dictDefaultMessage: "Clicca qua per caricare la tua immagine"
+var imgUploadR = new Dropzone('#img-upload', {
+    url: 'uploader/upload.php',
+    dictDefaultMessage: 'Clicca qua per caricare la tua immagine'
 });
-imgUploadR.on("success", function () {
+imgUploadR.on('success', function () {
 
-    $("#upl-info").removeClass("alert-info");
-    $("#upl-info").addClass("alert-success");
-    $("#upl-info").html("File has been uploaded successfully. Click to upload another.")
+    $('#upl-info').removeClass('alert-info');
+    $('#upl-info').addClass('alert-success');
+    $('#upl-info').html('File has been uploaded successfully. Click to upload another.')
 });
 var r_reader = new FileReader();
 r_reader.onload = function (event_r) {
@@ -115,6 +115,6 @@ r_reader.onload = function (event_r) {
     });
 };
 */
-imgUploadR.on("addedfile", function (file_r) {
+imgUploadR.on('addedfile', function (file_r) {
     r_reader.readAsDataURL(file_r);
 });
