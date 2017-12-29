@@ -32,7 +32,12 @@ function Addtext() {
         left: 20,
         top: 20
     });
-    fronte.add(text).setActiveObject(text);
+    if(position == 'Rcanvas') 
+			mySide = retro;
+		else
+			mySide = fronte;
+    
+    mySide.add(text).setActiveObject(text);
 }
 
 
@@ -107,7 +112,7 @@ function setStyle(object, styleName, value) {
     } else {
         object[styleName] = value;
     }
-    fronte.renderAll();
+    mySide.renderAll();
 };
 
 function getStyle(object, styleName) {
@@ -119,9 +124,9 @@ function getStyle(object, styleName) {
 function addHandler(id, fn, eventName) {
     document.getElementById(id)[eventName || 'onclick'] = function () {
         var el = this;
-        if (obj = fronte.getActiveObject()) {
+        if (obj = mySide.getActiveObject()) {
             fn.call(el, obj);
-            fronte.renderAll();
+            mySide.renderAll();
         }
     };
 }
