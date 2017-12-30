@@ -8,7 +8,7 @@ $('#retrobtn').click(function () {
         $('#frontebtn').removeClass('active');
         $('#retrobtn').addClass('active');
     }
-	position = 'Rcanvas';
+    position = 'Rcanvas';
 });
 
 $('#frontebtn').click(function () {
@@ -19,14 +19,14 @@ $('#frontebtn').click(function () {
         $('#frontebtn').addClass('active');
 
     }
-	position = 'Fcanvas';
+    position = 'Fcanvas';
 });
 
 
 // bottone elimina 
 
 $(document).on('click', '#delete-item', function () {
-    if (fronte.getActiveObject()||retro.getActiveObject() ) {
+    if (fronte.getActiveObject() || retro.getActiveObject()) {
         fronte.remove(fronte.getActiveObject());
         retro.remove(retro.getActiveObject());
     }
@@ -50,14 +50,14 @@ $(document).ready(function () {
 // canvas fronte/retro: unico caricamento con differente 'position'
 Dropzone.autoDiscover = false;
 var fronte = new fabric.Canvas('Fcanvas'); // carico su 2 oggetti diversi il fronte
-var retro = new fabric.Canvas('Rcanvas');  // e il retro della maglietta.
-var mySide = new fabric.Canvas();		   // quando modifico modifico l'attuale la utilizzato
+var retro = new fabric.Canvas('Rcanvas'); // e il retro della maglietta.
+var mySide = new fabric.Canvas(); // quando modifico modifico l'attuale la utilizzato
 var imgUpload = new Dropzone('#img-upload', {
     url: 'uploader/upload.php',
     dictDefaultMessage: 'Clicca qua per caricare la tua immagine'
 });
 imgUpload.on('success', function () {
-	
+
     $('#upl-info').removeClass('alert-info');
     $('#upl-info').addClass('alert-success');
     $('#upl-info').html('File has been uploaded successfully. Click to upload another.')
@@ -72,12 +72,12 @@ reader.onload = function (event) {
             scaleX: scale,
             scaleY: scale
         });
-		// modifico il generico mySide assegnandoli li lato attuale
-		if(position == 'Rcanvas') 
-			mySide = retro;
-		else
-			mySide = fronte;
-		mySide.add(img).renderAll();
+        // modifico il generico mySide assegnandoli li lato attuale
+        if (position == 'Rcanvas')
+            mySide = retro;
+        else
+            mySide = fronte;
+        mySide.add(img).renderAll();
         mySide.setActiveObject(img);
     });
 };
@@ -87,4 +87,18 @@ imgUpload.on('addedfile', function (file) {
 });
 
 //screenshot il fronte e il retro
+
+
+    function screenshot() {
+        html2canvas($('#Fcanvas'), {
+            onrendered: function(canvas) {
+                var canvasImg = canvas.toDataURL("image/jpg");
+                $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
+            }
+        });
+    }
+
+
+
+
 

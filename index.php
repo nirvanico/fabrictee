@@ -96,7 +96,7 @@
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/html2canvas.min.js"></script>
+    <script src="js/canvas2image.js"></script>
     <script src="js/dropzone.min.js"></script>
     <script src="js/fabric.min.js"></script>
     <script src="js/texteditor.js"></script>
