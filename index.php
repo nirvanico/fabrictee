@@ -67,36 +67,43 @@
                     <div class="btn btn-outline-secondary" id="retrobtn">Retro</div>
 
                 </div>
-                <img src="img/whitetee.png" class="tshirt" id="img_tshirt">
-                <div class="p-2" id="magliettafronte">
+                <div id=screenshot_fronte>
+                    <img src="img/whitetee.png" class="tshirt" id="img_tshirt">
 
-                    <canvas class="print-space" id="Fcanvas" width="245" height="400" style="border:1px solid #ccc"></canvas>
+                    <div class="p-2" id="magliettafronte">
+
+
+                        <canvas class="print-space" id="Fcanvas" width="245" height="400" style="border:1px solid #ccc"></canvas>
+                    </div>
+
                 </div>
-                <div class="p-2" id="magliettaretro">
+                <div id="screenshot_retro">
+                    <div class="p-2" id="magliettaretro">
 
-                    <canvas class="print-space" id="Rcanvas" width="245" height="400" style="border:1px solid #FF0000"></canvas>
+
+                        <canvas class="print-space" id="Rcanvas" width="245" height="400" style="border:1px solid #FF0000"></canvas>
+
+                    </div>
 
                 </div>
-
-
 
 
             </div>
         </div>
         <!--Seconda riga dedicata al bottone di invio-->
         <div class="row">
-            
+
             <?php include 'submit.php' ?>
-            
+
         </div>
 
     </div>
 
 
     <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/canvas2image.js"></script>
     <script src="js/dropzone.min.js"></script>
     <script src="js/fabric.min.js"></script>
     <script src="js/texteditor.js"></script>

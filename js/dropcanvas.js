@@ -86,19 +86,22 @@ imgUpload.on('addedfile', function (file) {
     reader.readAsDataURL(file);
 });
 
+
+
+
 //screenshot il fronte e il retro
+$('#convert').click(function () {
+    var FrontpngURL = fronte.toDataURL();
+    var RetropngURL = retro.toDataURL();
+    console.log(FrontpngURL);
 
+    $('#FrontplaceHolder').html('<img src="' + FrontpngURL + '"/>');
+    $('#RetroplaceHolder').html('<img src="' + RetropngURL + '"/>');
 
-    function screenshot() {
-        html2canvas($('#Fcanvas'), {
-            onrendered: function(canvas) {
-                var canvasImg = canvas.toDataURL("image/jpg");
-                $('#canvasImg').html('<img src="' + canvasImg + '" alt="">');
-            }
-        });
-    }
+});
 
-
-
+//sfondo del canvas
+fronte.setBackgroundImage('img/carta-millimetrata.png', fronte.renderAll.bind(fronte));
+retro.setBackgroundImage('img/carta-millimetrata.png', retro.renderAll.bind(retro));
 
 
