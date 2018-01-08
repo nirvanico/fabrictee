@@ -101,7 +101,7 @@ $('#convert').click(function () {
 });
 
 //sfondo del canvas
-fronte.setBackgroundImage('img/carta-millimetrata.png', fronte.renderAll.bind(fronte));
-retro.setBackgroundImage('img/carta-millimetrata.png', retro.renderAll.bind(retro));
+fronte.setBackgroundImage('img/grid.png', fronte.renderAll.bind(fronte));
+retro.setBackgroundImage('img/grid.png', retro.renderAll.bind(retro));
 
 
