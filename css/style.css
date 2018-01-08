@@ -19,13 +19,13 @@
     font-weight: bold;
 }
 */
+
 #fileInput {
     display: none;
 }
 
 
 /* elementi del canvas */
-
 
 .tshirt {
     width: 450px;
@@ -40,7 +40,7 @@
     z-index: 98;
     margin-top: 100px;
     margin-left: 95px;
-    
+
 }
 
 
@@ -48,8 +48,8 @@
 .bianco {
     background-color: white;
     color: black;
-    
-    
+
+
 }
 
 .nero {
@@ -60,3 +60,5 @@
 #magliettaretro {
     display: none;
 }
+
+

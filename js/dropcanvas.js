@@ -38,11 +38,13 @@ $(document).on('click', '#delete-item', function () {
 $(document).ready(function () {
     $('.nero').click(function () {
         $('#img_tshirt').attr('src', 'img/blacktee.png');
+        $('.nero').addClass('active');
     });
 });
 $(document).ready(function () {
     $('.bianco').click(function () {
         $('#img_tshirt').attr('src', 'img/whitetee.png');
+        $('.bianco').addClass('active')
     });
 });
 
@@ -94,7 +96,7 @@ $('#convert').click(function () {
     var FrontpngURL = fronte.toDataURL();
     var RetropngURL = retro.toDataURL();
     console.log(FrontpngURL);
-
+    
     $('#FrontplaceHolder').html('<img src="' + FrontpngURL + '"/>');
     $('#RetroplaceHolder').html('<img src="' + RetropngURL + '"/>');
 
