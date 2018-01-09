@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#ModalPreview"><i class="fa fa-envelope-open-o" aria-hidden="true"></i>
 
@@ -140,4 +140,4 @@ Anteprima delle magliette  </a>
         </div>
     </div>
 </div>
->>>>>>> origin/master
+
