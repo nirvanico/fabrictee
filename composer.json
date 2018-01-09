@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 {
     "require": {
         "phpmailer/phpmailer": "^6.0"
     }
+<<<<<<< HEAD
+}
+=======
+>>>>>>> origin/master
