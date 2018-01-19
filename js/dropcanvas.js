@@ -2,8 +2,8 @@
 var position // modificato al click sui bottoni fronte/retro indica posizione attuale maglietta.
 $('#retrobtn').click(function () {
 
-    $('#magliettafronte').hide();
-    $('#magliettaretro').show();
+    $('#screenshot_fronte').hide();
+    $('#screenshot_retro').show();
     if ($('#frontebtn').hasClass('active') == true) {
         $('#frontebtn').removeClass('active');
         $('#retrobtn').addClass('active');
@@ -12,8 +12,8 @@ $('#retrobtn').click(function () {
 });
 
 $('#frontebtn').click(function () {
-    $('#magliettaretro').hide();
-    $('#magliettafronte').show();
+    $('#screenshot_retro').hide();
+    $('#screenshot_fronte').show();
     if ($('#retrobtn').hasClass('active') == true) {
         $('#retrobtn').removeClass('active');
         $('#frontebtn').addClass('active');
@@ -37,13 +37,15 @@ $(document).on('click', '#delete-item', function () {
 
 $(document).ready(function () {
     $('.nero').click(function () {
-        $('#img_tshirt').attr('src', 'img/blacktee.png');
+        $('.tee-background').removeClass('whitetee');
+        $('.tee-background').addClass('blacktee');
         $('.nero').addClass('active');
     });
 });
 $(document).ready(function () {
     $('.bianco').click(function () {
-        $('#img_tshirt').attr('src', 'img/whitetee.png');
+        $('.tee-background').addClass('whitetee');
+        $('.tee-background').removeClass('blacktee');
         $('.bianco').addClass('active')
     });
 });
@@ -88,17 +90,41 @@ imgUpload.on('addedfile', function (file) {
     reader.readAsDataURL(file);
 });
 
-
-
-
 //screenshot il fronte e il retro
 $('#convert').click(function () {
-    var FrontpngURL = fronte.toDataURL();
+    /*var FrontpngURL = fronte.toDataURL();
     var RetropngURL = retro.toDataURL();
     console.log(FrontpngURL);
     
     $('#FrontplaceHolder').html('<img src="' + FrontpngURL + '"/>');
-    $('#RetroplaceHolder').html('<img src="' + RetropngURL + '"/>');
+    $('#RetroplaceHolder').html('<img src="' + RetropngURL + '"/>');*/
+
+    // Prendo gli elementi front e retro
+    var canvasFront = document.getElementById('screenshot_fronte');
+    var canvasRetro = document.getElementById('screenshot_retro');
+    // Prendo il display originale (block o none) per ripristinarlo successivamente
+    var originalStyleFront = jQuery(canvasFront).css('display');
+    var originalStyleRetro = jQuery(canvasRetro).css('display');
+
+    // Forzo il block sul fronte e nascondo il retro
+    jQuery(canvasFront).css('display','block');
+    jQuery(canvasRetro).css('display','none')
+
+    html2canvas(canvasFront).then(function(canvas) {
+        // Aggiunta del canvas fronte all'anteprima
+        jQuery("#FrontplaceHolder").html(canvas);
+        // Nascondo elemento fronte, mostro retro
+        jQuery(canvasFront).css('display','none');
+        jQuery(canvasRetro).css('display','block');
+
+        // Ripeto l'operazione dentro la promise, perché essendo asincrona può andare in conflitto
+        html2canvas(canvasRetro).then(function(canvas) {
+            jQuery("#RetroplaceHolder").html(canvas);
+            jQuery(canvasFront).css('display',originalStyleFront);
+            jQuery(canvasRetro).css('display',originalStyleRetro);
+        });
+    });
+
 
 });
 
