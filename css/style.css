@@ -24,6 +24,10 @@
     display: none;
 }
 
+.nav-tabs {
+    height: 45px;
+}
+
 
 /* elementi del canvas */
 
@@ -32,24 +36,19 @@
     height: auto;
     z-index: 95;
     position: absolute;
-    top: 90px;
+    top: 140px;
 }
 
 .print-space {
     position: relative;
     z-index: 98;
-    margin-top: 100px;
+    margin-top: 45px;
     margin-left: 95px;
-
 }
-
-
 
 .bianco {
     background-color: white;
     color: black;
-
-
 }
 
 .nero {
@@ -57,8 +56,43 @@
     color: white;
 }
 
-#magliettaretro {
+#screenshot_fronte,
+#screenshot_retro {
+    height: 500px;
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.p-2{
+    height: 100%;
+}
+
+#screenshot_retro {
     display: none;
 }
 
+.whitetee {
+    background: url(../img/whitetee.png);
+}
+
+.blacktee {
+    background: url(../img/blacktee.png);
+}
+
+#canvas-container {
+    width: 450px;
+}
+
+/* Preview */
+#FrontplaceHolder,
+#RetroplaceHolder {
+    text-align: center;
+}
+
+#RetroplaceHolder canvas,
+#FrontplaceHolder canvas {
+    width: 300px !important;
+    height: auto !important;
+}
 
