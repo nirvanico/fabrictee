@@ -90,9 +90,6 @@ imgUpload.on('addedfile', function (file) {
     reader.readAsDataURL(file);
 });
 
-
-
-
 //screenshot il fronte e il retro
 $('#convert').click(function () {
     /*var FrontpngURL = fronte.toDataURL();
@@ -101,21 +98,26 @@ $('#convert').click(function () {
     
     $('#FrontplaceHolder').html('<img src="' + FrontpngURL + '"/>');
     $('#RetroplaceHolder').html('<img src="' + RetropngURL + '"/>');*/
-    //generateCanvas(document.getElementById('screenshot_fronte'), jQuery("#FrontplaceHolder"));
-    //generateCanvas(document.getElementById('screenshot_retro'), jQuery("#RetroplaceHolder"));
 
+    // Prendo gli elementi front e retro
     var canvasFront = document.getElementById('screenshot_fronte');
     var canvasRetro = document.getElementById('screenshot_retro');
+    // Prendo il display originale (block o none) per ripristinarlo successivamente
     var originalStyleFront = jQuery(canvasFront).css('display');
     var originalStyleRetro = jQuery(canvasRetro).css('display');
 
+    // Forzo il block sul fronte e nascondo il retro
     jQuery(canvasFront).css('display','block');
+    jQuery(canvasRetro).css('display','none')
 
     html2canvas(canvasFront).then(function(canvas) {
+        // Aggiunta del canvas fronte all'anteprima
         jQuery("#FrontplaceHolder").html(canvas);
+        // Nascondo elemento fronte, mostro retro
         jQuery(canvasFront).css('display','none');
         jQuery(canvasRetro).css('display','block');
 
+        // Ripeto l'operazione dentro la promise, perché essendo asincrona può andare in conflitto
         html2canvas(canvasRetro).then(function(canvas) {
             jQuery("#RetroplaceHolder").html(canvas);
             jQuery(canvasFront).css('display',originalStyleFront);
