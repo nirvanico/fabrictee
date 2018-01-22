@@ -59,9 +59,13 @@ Anteprima delle magliette  </a>
 
                     </div>
                 </div>
+                
+                <!-- test x la preview -->
                 <div id="image_id">
                     <img src="" alt="image" />
                 </div>
+                
+                <!-- fine test -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
                     <button type="button" id="convertformail" class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
