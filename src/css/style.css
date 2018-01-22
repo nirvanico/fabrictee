@@ -1,0 +1,98 @@
+/* file uploader css 
+#dropBox {
+    border: 3px dashed #0087F7;
+    border-radius: 5px;
+    background: #F3F4F5;
+    cursor: pointer;
+}
+
+#dropBox {
+    min-height: 150px;
+    padding: 54px 54px;
+    box-sizing: border-box;
+}
+
+#dropBox p {
+    text-align: center;
+    margin: 2em 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+*/
+
+#fileInput {
+    display: none;
+}
+
+.nav-tabs {
+    height: 45px;
+}
+
+
+/* elementi del canvas */
+
+.tshirt {
+    width: 450px;
+    height: auto;
+    z-index: 95;
+    position: absolute;
+    top: 140px;
+}
+
+.print-space {
+    position: relative;
+    z-index: 98;
+    margin-top: 45px;
+    margin-left: 95px;
+}
+
+.bianco {
+    background-color: white;
+    color: black;
+}
+
+.nero {
+    background-color: black;
+    color: white;
+}
+
+#screenshot_fronte,
+#screenshot_retro {
+    height: 500px;
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.p-2{
+    height: 100%;
+}
+
+#screenshot_retro {
+    display: none;
+}
+
+.whitetee {
+    background: url(../img/whitetee.png);
+}
+
+.blacktee {
+    background: url(../img/blacktee.png);
+}
+
+#canvas-container {
+    width: 450px;
+}
+
+/* Preview */
+#FrontplaceHolder,
+#RetroplaceHolder {
+    text-align: center;
+}
+
+#RetroplaceHolder canvas,
+#FrontplaceHolder canvas {
+    width: 300px !important;
+    height: auto !important;
+}
+
