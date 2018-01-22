@@ -1,4 +1,3 @@
-
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#ModalPreview"><i class="fa fa-envelope-open-o" aria-hidden="true"></i>
 
@@ -44,7 +43,7 @@ Anteprima delle magliette  </a>
                 </form>
 
                 <div class="collapse" id="anteprima">
-                    <div class="container-fluid">
+                    <div class="container-fluid" id=mail_screenshot>
 
                         <!-- questo div viene messo come "visibile" dal bottone id=convert -->
                         <div class="row">
@@ -60,13 +59,14 @@ Anteprima delle magliette  </a>
 
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                <button type="button" class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                <div id="image_id">
+                    <img src="" alt="image" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                    <button type="button" id="convertformail" class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
  Invia!</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-

@@ -70,7 +70,7 @@ var reader = new FileReader();
 reader.onload = function (event) {
     var data = event.target.result;
     fabric.Image.fromURL(data, function (img) {
-        let scale = 300 / img.width;
+        var scale = 300 / img.width;
 
         img.set({
             scaleX: scale,
@@ -93,11 +93,11 @@ imgUpload.on('addedfile', function (file) {
 //screenshot il fronte e il retro
 $('#convert').click(function () {
     /*var FrontpngURL = fronte.toDataURL();
-    var RetropngURL = retro.toDataURL();
-    console.log(FrontpngURL);
+            var RetropngURL = retro.toDataURL();
+            console.log(FrontpngURL);
     
-    $('#FrontplaceHolder').html('<img src="' + FrontpngURL + '"/>');
-    $('#RetroplaceHolder').html('<img src="' + RetropngURL + '"/>');*/
+            $('#FrontplaceHolder').html('<img src="' + FrontpngURL + '"/>');
+            $('#RetroplaceHolder').html('<img src="' + RetropngURL + '"/>');*/
 
     // Prendo gli elementi front e retro
     var canvasFront = document.getElementById('screenshot_fronte');
@@ -107,29 +107,53 @@ $('#convert').click(function () {
     var originalStyleRetro = jQuery(canvasRetro).css('display');
 
     // Forzo il block sul fronte e nascondo il retro
-    jQuery(canvasFront).css('display','block');
-    jQuery(canvasRetro).css('display','none')
+    jQuery(canvasFront).css('display', 'block');
+    jQuery(canvasRetro).css('display', 'none')
 
-    html2canvas(canvasFront).then(function(canvas) {
+    html2canvas(canvasFront).then(function (canvas) {
         // Aggiunta del canvas fronte all'anteprima
         jQuery("#FrontplaceHolder").html(canvas);
         // Nascondo elemento fronte, mostro retro
-        jQuery(canvasFront).css('display','none');
-        jQuery(canvasRetro).css('display','block');
+        jQuery(canvasFront).css('display', 'none');
+        jQuery(canvasRetro).css('display', 'block');
 
         // Ripeto l'operazione dentro la promise, perché essendo asincrona può andare in conflitto
-        html2canvas(canvasRetro).then(function(canvas) {
+        html2canvas(canvasRetro).then(function (canvas) {
             jQuery("#RetroplaceHolder").html(canvas);
-            jQuery(canvasFront).css('display',originalStyleFront);
-            jQuery(canvasRetro).css('display',originalStyleRetro);
+            jQuery(canvasFront).css('display', originalStyleFront);
+            jQuery(canvasRetro).css('display', originalStyleRetro);
         });
     });
 
 
 });
 
+$('#convertformail').click(function () {
+    html2canvas(mail_screenshot).then(function (canvas) {
+        var imagedata = canvas.toDataURL('image/png');
+        var imgdata = imagedata.replace(/^data:image\/(png|jpg);base64,/, "");
+        //ajax call to save image inside folder
+        $.ajax({
+            url: 'save_image.php',
+            data: {
+                imgdata: imgdata
+            },
+            type: 'post',
+            success: function (response) {
+                console.log(response);
+                $('#image_id img').attr('src', response);
+            }
+        });
+
+    });
+
+});
+
+
+
+
+
 //sfondo del canvas
+
 fronte.setBackgroundImage('img/grid.png', fronte.renderAll.bind(fronte));
 retro.setBackgroundImage('img/grid.png', retro.renderAll.bind(retro));
-
-

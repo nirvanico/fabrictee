@@ -70,7 +70,7 @@ var reader = new FileReader();
 reader.onload = function (event) {
     var data = event.target.result;
     fabric.Image.fromURL(data, function (img) {
-        let scale = 300 / img.width;
+        var scale = 300 / img.width;
 
         img.set({
             scaleX: scale,
