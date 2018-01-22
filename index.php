@@ -2,11 +2,12 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <?php /*
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/dropzone.min.css">
-
+*/ ?>
 
 </head>
 
@@ -15,29 +16,29 @@
     <div class="row">
         <div class="col-md-6">
             <ul class="nav nav-tabs" role="tablist">
-                 <li class="nav-item">
-                     <a class="nav-link active" data-toggle="tab" href="#teeselector">T-shirt</a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link" data-toggle="tab" href="#imgupl">Image Uploader</a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link" data-toggle="tab" href="#textedit">Text Editor</a>
-                 </li>
-                 <li class="nav-pills ml-2">
-                     <a class="nav-link active" data-toggle="tab" id="delete-item">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#teeselector">T-shirt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#imgupl">Image Uploader</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#textedit">Text Editor</a>
+                </li>
+                <li class="nav-pills ml-2">
+                    <a class="nav-link active" data-toggle="tab" id="delete-item">
                          <i class="fa fa-trash-o" aria-hidden="true"></i> Elemento
                      </a>
-                 </li>
-             </ul>
+                </li>
+            </ul>
         </div>
         <div class="col-md-6">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                      <div class="btn btn-outline-primary active" id="frontebtn">Fronte</div>
+                    <div class="btn btn-outline-primary active" id="frontebtn">Fronte</div>
                 </li>
                 <li class="nav-item">
-                      <div class="btn btn-outline-secondary" id="retrobtn">Retro</div>
+                    <div class="btn btn-outline-secondary" id="retrobtn">Retro</div>
                 </li>
             </ul>
         </div>

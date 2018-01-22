@@ -1,61 +1,27 @@
-/*
+   //gulpfile.js
+   var gulp = require('gulp');
+   var concat = require('gulp-concat');
+   var minifyCSS = require('gulp-minify-css');
+   var uglify = require('gulp-uglify');
+   var autoprefixer = require('gulp-autoprefixer');
+   var rename = require('gulp-rename');
 
-    Before using make sure you have:
-    npm install --save-dev gulp gulp-minify-css gulp-concat gulp-uglify gulp-autoprefixer gulp-sass
+   //css stuff, concat+minify
+   gulp.task('css', function () {
+       gulp.src('src/css/**/*.css')
+           .pipe(minifyCSS())
+           .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
+           .pipe(concat('style.min.css'))
+           .pipe(gulp.dest('css'))
+   });
 
-    Make sure to change the directory names in the default watch function to the CSS/SCSS/SASS directories you are using so it reloads
- */
-var gulp = require('gulp'),
-    minifyCSS = require('gulp-minify-css'),
-    concat = require('gulp-concat')
-    uglify = require('gulp-uglify')
-    prefix = require('gulp-autoprefixer')
-    sass = require('gulp-sass');
+   //script paths
 
-// Minifies JS
-gulp.task('js', function(){
-    return gulp.src('src/js/*.js')
-    .pipe(uglify())
-    .pipe(gulp.dest('/js'))
-});
-
-/*==========  Minify and concat different styles files  ==========*/
-
-// SASS Version
-//gulp.task('styles', function(){
-    //return gulp.src('src/sass/**/*.sass')
-    //.pipe(sass())
-    //.pipe(prefix('last 2 versions'))
-    //.pipe(concat('main.css'))
-    //.pipe(minifyCSS())
-    //.pipe(gulp.dest('public/css'))
-//});
-
-// SCSS Version
-//gulp.task('styles', function(){
-    //return gulp.src('src/scss/**/*.scss')
-    //.pipe(sass())
-    //.pipe(prefix('last 2 versions'))
-    //.pipe(concat('main.css'))
-    //.pipe(minifyCSS())
-    //.pipe(gulp.dest('public/css'))
-//});
-
-
- // CSS Version
-
-gulp.task('styles', function(){
-    return gulp.src('src/css/*.css')
-    .pipe(concat('site.css'))
-    .pipe(minifyCSS())
-    .pipe(prefix('last 2 versions'))
-    .pipe(gulp.dest('/css'))
-});
-
-gulp.task('default', function() {
-    gulp.run('styles')
-    gulp.run('js')
-    gulp.watch('src/sass/**/*.sass', function(){
-        gulp.run('styles')
-    })
-});
+   gulp.task('scripts', function () {
+       gulp.src('src/js/**/*.js')
+           .pipe(concat('scripts.js'))
+           .pipe(gulp.dest('js'))
+           .pipe(rename('scripts.min.js'))
+           .pipe(uglify())
+           .pipe(gulp.dest('js'));
+   });
