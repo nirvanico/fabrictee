@@ -129,7 +129,8 @@ $('#convert').click(function () {
 });
 
 $('#convertformail').click(function () {
-    html2canvas(mail_screenshot).then(function (canvas) {
+    html2canvas(mail_screenshot).then(function (canvas) { 
+        //utilizzo questo id, perche rimane nel container dove ci sono i due canvas precedentemente renderizzati
         var imagedata = canvas.toDataURL('image/png');
         var imgdata = imagedata.replace(/^data:image\/(png|jpg);base64,/, "");
         //ajax call to save image inside folder
