@@ -1,5 +1,6 @@
 //nascondi e mostra i canvas
 var position // modificato al click sui bottoni fronte/retro indica posizione attuale maglietta.
+
 $('#retrobtn').click(function () {
 
     $('#screenshot_fronte').hide();
@@ -128,26 +129,29 @@ $('#convert').click(function () {
 
 });
 
+
 $('#convertformail').click(function () {
-    html2canvas(mail_screenshot).then(function (canvas) { 
-        //utilizzo questo id, perche rimane nel container dove ci sono i due canvas precedentemente renderizzati
-        var imagedata = canvas.toDataURL('image/png');
-        var imgdata = imagedata.replace(/^data:image\/(png|jpg);base64,/, "");
-        //ajax call to save image inside folder
-        $.ajax({
-            url: 'save_image.php',
-            data: {
-                imgdata: imgdata
-            },
-            type: 'post',
-            success: function (response) {
-                console.log(response);
-                $('#image_id img').attr('src', response);
-            }
-        });
+    html2canvas(document.querySelector("#mail_screenshot")).then(canvas => {
 
+        var screenshot_data = canvas.toDataURL("image/png");
+        var screenshot_data = screenshot_data.replace(/^data:image\/(png|jpg);base64,/, "");
+        console.log(screenshot_data);
+        //jQuery('#image_id').html(canvas);
     });
-
+    $.ajax({
+        
+        url: "save_image.php",
+        type: "POST",
+        data: {
+            data: screenshot_data
+        }
+    }).done(function (o) {
+        console.log('saved');
+        // If you want the file to be visible in the browser 
+        // - please modify the callback in javascript. All you
+        // need is to return the url to the file, you just saved 
+        // and than put the image in your browser.
+    });
 });
 
 

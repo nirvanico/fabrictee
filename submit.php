@@ -62,7 +62,7 @@ Anteprima delle magliette  </a>
                 
                 <!-- test x la preview -->
                 <div id="image_id">
-                    <img src="" alt="image" />
+                    
                 </div>
                 
                 <!-- fine test -->
