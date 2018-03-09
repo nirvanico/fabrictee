@@ -11,9 +11,8 @@
     $decoded = base64_decode($image);
 
     file_put_contents($screendir . "/" . $name . ".png", $decoded, LOCK_EX);
+    
     echo $image; 
-
-
 
 
 ?>

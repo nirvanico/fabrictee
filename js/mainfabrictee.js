@@ -149,9 +149,10 @@ $('#convertformail').click(function () {
             }
             
         
-        }).done(function (o) {
+        }).done(function (renderedscreen) {
             console.log('saved');
-            $('#imageHolder').html(o);
+            $('#imageHolder').html(renderedscreen);
+        
             // If you want the file to be visible in the browser 
             // - please modify the callback in javascript. All you
             // need is to return the url to the file, you just saved 

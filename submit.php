@@ -64,7 +64,7 @@ Anteprima delle magliette  </a>
                 <div id="imageHolder">
                     
                 </div>
-                
+                <div id="imagesrc"></div>
                 <!-- fine test -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
