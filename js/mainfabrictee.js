@@ -130,28 +130,33 @@ $('#convert').click(function () {
 });
 
 
-$('#convertformail').click(function () {
-    html2canvas(document.querySelector("#mail_screenshot")).then(canvas => {
 
-        var screenshot_data = canvas.toDataURL("image/png");
-        var screenshot_data = screenshot_data.replace(/^data:image\/(png|jpg);base64,/, "");
-        console.log(screenshot_data);
-        //jQuery('#image_id').html(canvas);
-    });
-    $.ajax({
+$('#convertformail').click(function () {
+    var screenshot4mail = document.getElementById('mail_screenshot');
+    html2canvas(screenshot4mail).then(function (to_email) {
+
+        var dataURL = to_email.toDataURL()
         
-        url: "save_image.php",
-        type: "POST",
-        data: {
-            data: screenshot_data
-        }
-    }).done(function (o) {
-        console.log('saved');
-        // If you want the file to be visible in the browser 
-        // - please modify the callback in javascript. All you
-        // need is to return the url to the file, you just saved 
-        // and than put the image in your browser.
+
+        $('#image_id').html(to_email); //test se stampa il div
+        $.ajax({
+
+            url: "save_image.php",
+            type: "POST",
+            data: {
+                imgbase64: dataURL
+            },
+            dataType: 'json',
+        
+        }).done(function (o) {
+            console.log('saved');
+            // If you want the file to be visible in the browser 
+            // - please modify the callback in javascript. All you
+            // need is to return the url to the file, you just saved 
+            // and than put the image in your browser.
+        });
     });
+
 });
 
 
