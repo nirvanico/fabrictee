@@ -61,7 +61,7 @@ Anteprima delle magliette  </a>
                 </div>
                 
                 <!-- test x la preview -->
-                <div id="image_id">
+                <div id="imageHolder">
                     
                 </div>
                 
@@ -70,6 +70,7 @@ Anteprima delle magliette  </a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
                     <button type="button" id="convertformail" class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
  Invia!</button>
+              
                 </div>
             </div>
         </div>

@@ -138,18 +138,20 @@ $('#convertformail').click(function () {
         var dataURL = to_email.toDataURL()
         
 
-        $('#image_id').html(to_email); //test se stampa il div
+        // $('#image_id').html(to_email); test se stampa il div
+        $('#imageHolder').html('Generating..');
         $.ajax({
 
             url: "save_image.php",
             type: "POST",
             data: {
                 imgbase64: dataURL
-            },
-            dataType: 'json',
+            }
+            
         
         }).done(function (o) {
             console.log('saved');
+            $('#imageHolder').html(o);
             // If you want the file to be visible in the browser 
             // - please modify the callback in javascript. All you
             // need is to return the url to the file, you just saved 
