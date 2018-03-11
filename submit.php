@@ -66,6 +66,7 @@ Anteprima delle magliette  </a>
                 </div>
                 <div id="imagesrc"></div>
                 <!-- fine test -->
+                <input type="hidden" value="<?php echo md5(session_id()); ?>" />
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
                     <button type="button" id="convertformail" class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>

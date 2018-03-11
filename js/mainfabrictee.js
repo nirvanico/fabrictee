@@ -133,6 +133,7 @@ $('#convert').click(function () {
 
 $('#convertformail').click(function () {
     var screenshot4mail = document.getElementById('mail_screenshot');
+    var form_key = document.getElementById('form_key');
     html2canvas(screenshot4mail).then(function (to_email) {
 
         var dataURL = to_email.toDataURL()
@@ -145,7 +146,8 @@ $('#convertformail').click(function () {
             url: "save_image.php",
             type: "POST",
             data: {
-                imgbase64: dataURL
+                imgbase64: dataURL,
+                form_key: form_key
             }
             
         
