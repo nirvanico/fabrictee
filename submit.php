@@ -1,3 +1,8 @@
+<?php
+$form_key = md5(microtime(true));
+$_SESSION['form_key'] = $form_key;
+?>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#ModalPreview"><i class="fa fa-envelope-open-o" aria-hidden="true"></i>
 
@@ -66,7 +71,7 @@ Anteprima delle magliette  </a>
                 </div>
                 <div id="imagesrc"></div>
                 <!-- fine test -->
-                <input type="hidden" value="<?php echo md5(session_id()); ?>" />
+                <input type="hidden" value="<?php echo $form_key; ?>" />
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
                     <button type="button" id="convertformail" class="btn btn-primary"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>

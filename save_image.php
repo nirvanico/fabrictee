@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 include_once 'vendor/autoload.php';
 
-if($_POST['form_key'] != md5(session_id())) {
+if($_POST['form_key'] != $_SESSION['form_key']) {
     die('Sessione non valida');
 }
 
