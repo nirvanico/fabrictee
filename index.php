@@ -100,7 +100,6 @@
 
     </div>
 
-
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/html2canvas.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -109,7 +108,6 @@
     <script src="js/fabric.min.js"></script>
     <script src="js/texteditor.js"></script>
     <script src="js/mainfabrictee.js"></script>
-
 
 
 
