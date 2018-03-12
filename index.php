@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <?php /*
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">

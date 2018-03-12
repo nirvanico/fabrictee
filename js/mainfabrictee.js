@@ -1,3 +1,6 @@
+//global
+$('#convertformail').hide();
+
 //nascondi e mostra i canvas
 var position // modificato al click sui bottoni fronte/retro indica posizione attuale maglietta.
 
@@ -128,33 +131,81 @@ $('#convert').click(function () {
 
 
 });
+//reCAPTCHA
+//var onloadCallback = function() {
+//	grecaptcha.render('submitmail', {
+//  'sitekey' : '6LfcFEwUAAAAAD4V9HdOr1VEIGkBxAzz0Xbi1CMD'
+// });
+//};
+//onloadCallback();
+
+
+//form validate
+$('#convert').click(function (event) {
+
+
+    //Fetch form to apply custom Bootstrap validation
+    var form = $('#submitmail')
+
+    if (form[0].checkValidity() === false) {
+        event.preventDefault()
+        event.stopPropagation()
+        var control = false;
+        console.log(control);
+    }
+    form.addClass('was-validated');
+    
+        control = true;
+        $('#convertformail').show();
+        $('#convertformail').html("<i class='fa fa-file-o'></i> Genera il preventivo");
+
+
+
+    /*if (form.hasClass('was-validated') == true) {
+        $('#convertformail').show();
+        $('#convertformail').html("<i class='fa fa-file-o'></i> Genera il preventivo");
+    }
+*/
+
+});
 
 
 
 $('#convertformail').click(function () {
+    var nome = $('#nome').val();
+    var cognome = $('#cognome').val();
+    var email = $('#email').val();
+    var quantita = $('#quantita').val();
+    var colore = $('#colore').val();
     var screenshot4mail = document.getElementById('mail_screenshot');
     var form_key = document.getElementById('form_key');
     html2canvas(screenshot4mail).then(function (to_email) {
 
         var dataURL = to_email.toDataURL()
-        
 
         // $('#image_id').html(to_email); test se stampa il div
-        $('#imageHolder').html('Generating..');
+
+        $('#convertformail').html("<i class='fa fa-circle-o-notch fa-spin  fa-fw'></i> In generazione");
         $.ajax({
 
             url: "save_image.php",
             type: "POST",
             data: {
+                nome: nome,
+                cognome: cognome,
+                quantita: quantita,
+                email: email,
+                colore: colore,
                 imgbase64: dataURL,
                 form_key: form_key
             }
-            
-        
+
+
         }).done(function (renderedscreen) {
             console.log('saved');
-            $('#imageHolder').html(renderedscreen);
-        
+            $('#convertformail').html("<i class='fa fa-paper-plane-o'></i>Invia!");
+
+
             // If you want the file to be visible in the browser 
             // - please modify the callback in javascript. All you
             // need is to return the url to the file, you just saved 
@@ -163,6 +214,8 @@ $('#convertformail').click(function () {
     });
 
 });
+
+
 
 
 
