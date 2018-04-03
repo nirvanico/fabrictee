@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/dropzone.min.css">
 */ ?>
-
+<title> Fabrictee - the awesome t-shirt maker</title>
 </head>
 
 <header>

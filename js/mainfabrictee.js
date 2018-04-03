@@ -1,5 +1,7 @@
 //global
 $('#convertformail').hide();
+$('#send2mail').hide();
+$('#convert').hide();
 
 //nascondi e mostra i canvas
 var position // modificato al click sui bottoni fronte/retro indica posizione attuale maglietta.
@@ -141,33 +143,33 @@ $('#convert').click(function () {
 
 
 //form validate
-$('#convert').click(function (event) {
+
+window.addEventListener('load', function () {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    var listerner = document.getElementById('validateform');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function (form) {
+        listerner.addEventListener('click', function (event) {
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                $('#validateform').hide();
+                $('#convert').fadeIn();
+
+            }
+            form.classList.add('was-validated');
+            $('#convert').click(function () {
+                $('#convertformail').fadeIn();
+                $('#convertformail').html("<i class='fa fa-file-o'></i> Genera il preventivo");
+            });
 
 
-    //Fetch form to apply custom Bootstrap validation
-    var form = $('#submitmail')
+        }, false);
+    });
+}, false);
 
-    if (form[0].checkValidity() === false) {
-        event.preventDefault()
-        event.stopPropagation()
-        var control = false;
-        console.log(control);
-    }
-    form.addClass('was-validated');
-    
-        control = true;
-        $('#convertformail').show();
-        $('#convertformail').html("<i class='fa fa-file-o'></i> Genera il preventivo");
-
-
-
-    /*if (form.hasClass('was-validated') == true) {
-        $('#convertformail').show();
-        $('#convertformail').html("<i class='fa fa-file-o'></i> Genera il preventivo");
-    }
-*/
-
-});
 
 
 
@@ -198,12 +200,20 @@ $('#convertformail').click(function () {
                 colore: colore,
                 imgbase64: dataURL,
                 form_key: form_key
+
             }
 
 
         }).done(function (renderedscreen) {
             console.log('saved');
-            $('#convertformail').html("<i class='fa fa-paper-plane-o'></i>Invia!");
+            $('#convertformail').hide();
+            $('#send2mail').fadeIn();
+            $('#send2mail').html("<i class='fa fa-paper-plane-o'></i> Invia!");
+            $('#send2mail').click(function () {
+                $('#ModalPreview').modal('hide');
+                alert("Grazie per aver usato Fabrictee")
+            });
+
 
 
             // If you want the file to be visible in the browser 

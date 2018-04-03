@@ -21,7 +21,7 @@ $mail->Port = 587;
 $image = $_POST['imgbase64'];
 $email = $_POST['email'];
     
-    echo "<img src='$image' alt='image' />";
+    //echo "<img src='$image' alt='image' />";
     $screendir = "saved_img";
     $name = time();
 
@@ -39,7 +39,7 @@ $email = $_POST['email'];
     $mail->Body ='Una richiesta di preventivo a nome di '.$_POST['nome'].' '.$_POST['cognome'].' con e-mail ' .$_POST['email'].' richiede con la grafica allegata, la seguente quantità di t-shirt'.' '.$_POST['quantita'].' del colore '.$_POST['colore'];
     $mail->send();
     
-    echo $image; 
+    exit(); 
 
 
 ?>

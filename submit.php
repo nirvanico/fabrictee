@@ -19,7 +19,7 @@ $_SESSION['form_key'] = $form_key;
         </button>
                 </div>
                 <div class="modal-body">
-                    <form id="submitmail" method="post" action="save_image.php">
+                    <form class="needs-validation" id="submitmail" method="post" action="save_image.php">
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input class="form-control" id="nome" placeholder="Inserisci qua il tuo nome" type="text" required>
@@ -47,7 +47,7 @@ $_SESSION['form_key'] = $form_key;
                         <div class="form-group">
                             <div class="alert alert-warning my-2">Attezione! Ricordarsi di scegliere il colore</div>
                             <label for="colore">Colore</label>
-                            <select class="form-control" id="colore" required>
+                            <select class="form-control" id="colore">
                               <option selected>Scegli il colore</option>
                               <option value="bianco">Bianco</option>
                               <option value="nero">Nero</option>
@@ -56,6 +56,7 @@ $_SESSION['form_key'] = $form_key;
                         <div class="g-recaptcha form-group" data-sitekey="6LfcFEwUAAAAAD4V9HdOr1VEIGkBxAzz0Xbi1CMD"></div>
                         <a class="btn btn-success" id="convert" data-toggle="collapse" href="#anteprima" aria-expanded="false" aria-controls="anteprima" required>
 Anteprima delle magliette  </a>
+                   <button type="button" id="validateform" class="btn btn-outline-primary"> Conferma i tuoi dati</button>
                     </form>
 
                     <div class="collapse" id="anteprima">
@@ -87,10 +88,9 @@ Anteprima delle magliette  </a>
                     <input type="hidden" value="<?php echo $form_key; ?>" />
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                        <button type="button" form="submitmail" id="convertformail" class="btn btn-primary">
+                        <button type="button"  id="convertformail" class="btn btn-primary"></button>
+                        <button type="button" form="submitmail" id="send2mail" class="btn btn-success"></button>
                         
-                        </button>
-
                     </div>
                 </div>
             </div>
